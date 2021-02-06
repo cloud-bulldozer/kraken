@@ -16,6 +16,7 @@ from kraken.node_actions.aws_node_scenarios import aws_node_scenarios
 from kraken.node_actions.general_cloud_node_scenarios import general_node_scenarios
 from kraken.node_actions.gcp_node_scenarios import gcp_node_scenarios
 from kraken.node_actions.openstack_node_scenarios import openstack_node_scenarios
+from kraken.node_actions.bm_node_scenarios import bm_node_scenarios
 import kraken.time_actions.common_time_functions as time_actions
 import kraken.performance_dashboards.setup as performance_dashboards
 
@@ -34,6 +35,8 @@ def get_node_scenario_object(node_scenario):
         return gcp_node_scenarios()
     elif node_scenario['cloud_type'] == 'openstack':
         return openstack_node_scenarios()
+    elif node_scenario['cloud_type'] == 'bm':
+        return bm_node_scenarios(node_scenario["bm_user"], node_scenario["bm_password"])
     else:
         logging.error("Cloud type " + node_scenario['cloud_type'] + " is not currently supported; "
                       "try using 'generic' if wanting to stop/start kubelet or fork bomb on any "
