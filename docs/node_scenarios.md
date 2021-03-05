@@ -20,6 +20,13 @@ Following node chaos scenarios are supported:
 
 **NOTE**: For clusters with AWS make sure [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) is installed and properly [configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) using an AWS account
 
+#### Baremetal
+**NOTE**: Baremetal requires setting the IPMI user and password to power on, off, and reboot nodes, using the config options `bm_user` and `bm_password`.
+
+It currently assumes that all nodes have the same user and password.
+
+**NOTE**: Baremetal requires oc (openshift client) be installed on the machine running Kraken.
+
 #### GCP
 **NOTE**: For clusters with GCP make sure [GCP CLI](https://cloud.google.com/sdk/docs/install#linux) is installed.
 
